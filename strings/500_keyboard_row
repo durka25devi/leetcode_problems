@@ -1,0 +1,42 @@
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+# Code
+```python3 []
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        first_row="qwertyuiop"
+        second_row="asdfghjkl"
+        third_row="zxcvbnm"
+        result=[]
+
+        for word in words:
+            w=word.lower()
+            f_ch=w[0]
+            if f_ch in first_row:
+                row=first_row
+            elif f_ch in second_row:
+                row=second_row
+            else:
+                row=third_row
+
+            isvalid=True
+
+            for ch in w:
+                if ch not in row:
+                    isvalid=False
+                    break
+            if isvalid:
+                result.append(word)
+                
+        return result
